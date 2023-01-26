@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cr%hqlm+vj)y4-g!s4in_md!j0j-@h*iyloqbxkrz4(k+r7-e6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -121,3 +121,13 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+DATE_FORMAT = ( ( 'd-m-Y' ))
+DATE_INPUT_FORMATS = ( ('%d-%m-%Y'),)
+DATETIME_FORMAT = (( 'd-m-Y H:i' ))
+DATETIME_INPUT_FORMATS = (('%d-%m-%Y %H:%i'),)
+
+USE_L10N = False

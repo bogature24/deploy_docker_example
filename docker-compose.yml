@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+
+  web:
+    build: .
+    command: sh -c "python manage.py collectstatic --no-input && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    restart: on-failure
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - main
+    stdin_open: true
+    tty: true
+
+networks:
+  main:
